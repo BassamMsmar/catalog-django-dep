@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-5">
+        <ul class="list-group list-group-flush">
+            {% for item in products %}
+            <li class="list-group-item">{{ item }}</li>
+            <a href="{% url 'remove_to_cart' item.id %}" class="btn btn-outline-danger ">حذف من العربة</a>
+            {% endfor %}
+        </ul>
+        {{ total_price.price__sum  }}
+    </div>
+</div>
+
+{% endblock %}

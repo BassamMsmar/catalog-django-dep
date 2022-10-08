@@ -1,0 +1,23 @@
+{% extends 'base.html'  %}
+{% block content %}
+
+<div class="container ">
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-5">
+    {% for item in section %}
+    <div class="col">
+      <div class="card">
+        <a href="{% url 'products_list'  item.id %}">
+            <img src="{{ item.image_section.url}}" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ item.name_section}}</h5>
+        </div>
+      </div>
+    </div> 
+    {% endfor %}
+</div>
+</div>
+
+
+{% endblock %}
+

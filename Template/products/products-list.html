@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-5">
+       
+    {% for item in product %}
+        {% if item.section.id == pk %}
+    <div class="col">
+      <div class="card">
+        <a href="#">
+            <img src="{{ item.image_product.url}}" class="card-img-top " alt="...">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title text-left">{{ item.name_product}}</h5>
+            <p class="card-text text-left">السعر:{{ item.price}}</p>
+            <p class="card-text text-left">{{ item.description_product}}</p>
+            <a href="#" class="btn btn-primary text-center">التفاصيل</a>
+            <a href="{% url 'edit_product' item.id%}" class="btn btn-primary text-center">تعديل</a>
+            <a href="{% url 'add_to_cart' item.id%}" class="btn btn-primary text-center">اضافة للعربة</a>
+
+
+
+          </div>
+      </div>
+    </div>
+        {% endif %}
+    {% endfor %}
+</div>
+</div>
+
+{% endblock %}
